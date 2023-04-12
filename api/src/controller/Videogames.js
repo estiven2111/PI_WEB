@@ -2,6 +2,8 @@ const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const Genres = require("../models/Genres");
 const { Op } = require("sequelize")
+require("dotenv").config
+const {KEY_API} = process.env 
 
 
 //! BUSCAR POR NOMBRE EN API Y DB
@@ -49,7 +51,7 @@ const getGames = async (req, res) => {
 
     //     }
     // })
-    const url = `https://api.rawg.io/api/games?search=${name}&key=4f316582b06b40f6bae38af1cf60962d`;
+    const url = `https://api.rawg.io/api/games?search=${name}&key=${KEY_API}`;
 
     //? Busca en la api los primeros 15 juegos segun el nombre
     const nameGamesurl = await axios.get(url);
@@ -101,7 +103,7 @@ const getIdGames = async (req, res) => {
         }
         res.status(200).json(GamesBD);
     } else {
-        const url = `https://api.rawg.io/api/games/${id}?key=4f316582b06b40f6bae38af1cf60962d`
+        const url = `https://api.rawg.io/api/games/${id}?key=${KEY_API}`
         const idGames = await axios.get(url);
         try {
             const plataform = idGames.data.platforms?.map(response => response.platform.name);
@@ -132,7 +134,7 @@ const getIdGames = async (req, res) => {
 const getGamesfull = async (req, res) => {
     let allGames = [];
     for (let i = 1; i < 6; i++) {
-        let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=4f316582b06b40f6bae38af1cf60962d&page=${i}`);
+        let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=${KEY_API}d&page=${i}`);
         const allVideogames = games.data.results;
         allGames = [...allGames, ...allVideogames]
     }
