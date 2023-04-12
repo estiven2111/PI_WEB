@@ -7,6 +7,8 @@ import Detail from "./components/Detail/Detail"
 import SearchBar from "./components/SearchBar/SearchBar";
 import { useLocation } from "react-router-dom";
 import FormGame from "./components/Form/FormGame";
+import axios from "axios";
+axios.defaults.baseURL = "https://piweb-production.up.railway.app/"
 
 
 function App() {

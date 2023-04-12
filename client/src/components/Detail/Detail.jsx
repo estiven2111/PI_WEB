@@ -12,7 +12,7 @@ function Detail() {
         async function details() {
             
             try {
-                const dataDetal = await axios.get(`http://localhost:3007/videogames/${detailId}`);
+                const dataDetal = await axios.get(`/videogames/${detailId}`);
             const getDetail = dataDetal.data
            
             if (getDetail.name) {
