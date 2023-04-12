@@ -2,6 +2,7 @@ const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const Genres = require("../models/Genres");
 const { Op } = require("sequelize")
+const {getGenre} = require("./src/controller/Genres")
 require("dotenv").config
 const {KEY_API} = process.env 
 
@@ -116,7 +117,7 @@ const getIdGames = async (req, res) => {
 
 //! MUESTRA LOS PRIMEROS 100 JUEGOS 
 const getGamesfull = async (req, res) => {
-    
+    getGenre();
     let allGames = [];
     for (let i = 1; i < 6; i++) {
         let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=${KEY_API}&page=${i}`);

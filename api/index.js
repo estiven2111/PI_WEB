@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');      //4 se importa server desde app.js
 const { conn } = require('./src/db.js');
-const {getGenre} = require("./src/controller/Genres")
+
 require('dotenv').config
 const {PORT} = process.env
 
@@ -27,7 +27,7 @@ const {PORT} = process.env
 conn.sync({ force: false }).then(() => {
   
   server.listen(PORT, () => {
-   getGenre();
+    
     console.log('%s listening at ',PORT); // eslint-disable-line no-console
   });
 });
