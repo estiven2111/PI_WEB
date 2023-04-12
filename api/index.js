@@ -21,7 +21,7 @@ const server = require('./src/app.js');      //4 se importa server desde app.js
 const { conn } = require('./src/db.js');
 const {getGenre} = require("./src/controller/Genres")
 require('dotenv').config
-const {PORT} = process.env.PORT
+const {PORT} = process.env
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
