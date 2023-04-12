@@ -117,7 +117,7 @@ const getIdGames = async (req, res) => {
 
 //! MUESTRA LOS PRIMEROS 100 JUEGOS 
 const getGamesfull = async (req, res) => {
-    getGenre();
+    // getGenre();
     let allGames = [];
     for (let i = 1; i < 6; i++) {
         let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=${KEY_API}&page=${i}`);
