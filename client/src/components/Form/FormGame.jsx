@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./FormGame.module.css"
 import NavBar from '../NavBar/NavBar'
 import validate from "./validate"
+import axios from "axios"
 
 
 function FormGame() {
@@ -81,7 +82,7 @@ function FormGame() {
   function submitHandler(e) {
     e.preventDefault()
     if(formdata.released){
-      fetch(`https://piweb-production.up.railway.app/videogames/`, {
+      axios.post(`https://piweb-production.up.railway.app/videogames`, {
         method: `POST`,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formdata)
