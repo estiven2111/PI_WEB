@@ -8,6 +8,7 @@ const {KEY_API} = process.env
 
 //! BUSCAR POR NOMBRE EN API Y DB
 const getGames = async (req, res) => {
+    
     // const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8|9|aA|bB][0-9a-f]{3}-[0-9a-f]{12}$/i;
     const { name, id } = req.query;
     //   console.log("este es el ",id)
@@ -37,20 +38,6 @@ const getGames = async (req, res) => {
             genres: genres
         }
     })
-    // console.log("estos son los generos" ,nameGamesBDs)
-    // nameGamesBD?.map(bd=>{
-
-    //     return{
-    //         id:bd.id,
-    //         name:bd.name,
-    //         description:bd.description,
-    //         platform:bd.platform,
-    //         background_image:bd.image,
-    //         rating:bd.rating,
-
-
-    //     }
-    // })
     const url = `https://api.rawg.io/api/games?search=${name}&key=${KEY_API}`;
 
     //? Busca en la api los primeros 15 juegos segun el nombre
@@ -71,11 +58,8 @@ const getGames = async (req, res) => {
             genres: genres
         }
     })
-    // console.log("base datos:  ",nameGamesBD)
-    // console.log("apirest:  ",fullgames)
     const unionGames = [...nameGamesBDs, ...fullgames]
     res.json(unionGames)
-    // res.json(nameGamesurl.data.results);
 }
 
 //! BUSCAR POR ID EN BD Y API
@@ -132,9 +116,10 @@ const getIdGames = async (req, res) => {
 
 //! MUESTRA LOS PRIMEROS 100 JUEGOS 
 const getGamesfull = async (req, res) => {
+    
     let allGames = [];
     for (let i = 1; i < 6; i++) {
-        let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=${KEY_API}d&page=${i}`);
+        let games = await axios.get(`https://api.rawg.io/api/games?dates=2022-09-01&key=${KEY_API}&page=${i}`);
         const allVideogames = games.data.results;
         allGames = [...allGames, ...allVideogames]
     }
@@ -175,7 +160,6 @@ const getGamesfull = async (req, res) => {
             genres: genres
         }
     })
-    console.log("despues",nameGamesBDs.background_image)
     const unionGames = [...datos, ...nameGamesBDs]  //?spread operator
     res.json(unionGames)
     //! Model.bulkCreate(all)//?guarda todo el array de obj
@@ -212,13 +196,6 @@ const posGames = async (req, res) => {
             rating,
             description,
         });
-        console.log(dat)
-        // // const obtenerid = await genres.findAll({
-        // //     where: {
-        // //         name: "accion"
-        // //     }
-
-        // // })
         for (const ite of genres) {
             let gen = await Genre.findByPk(ite);
             await newGame.addGenres(gen);
