@@ -107,8 +107,7 @@ function FormGame() {
     // }
     if(formdata.released){
       axios.post(`https://piweb-production.up.railway.app/videogames`,formdata)
-     .then(response => response.json())
-        .then(data => {
+     .then(data => {
           if (data) {
             setResback(data);
             setBtnactivo(false)
