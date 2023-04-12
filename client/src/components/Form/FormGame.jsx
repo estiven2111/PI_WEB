@@ -81,13 +81,33 @@ function FormGame() {
 
   function submitHandler(e) {
     e.preventDefault()
+    // if(formdata.released){
+    //   axios(`https://piweb-production.up.railway.app/videogames`, {
+    //     method: `POST`,
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(formdata)
+    //   })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       if (data) {
+    //         setResback(data);
+    //         setBtnactivo(false)
+    //         setTimeout(()=>{
+    //           window.location.reload();
+    //         },3000)
+            
+    //       }
+  
+    //     })
+    //     .catch(error => {
+    //       console.error('Error al enviar datos al backend:', error);
+    //     });
+    // }else{
+    //   alert("DEBE SELECCIONAR UNA FECHA")
+    // }
     if(formdata.released){
-      axios(`https://piweb-production.up.railway.app/videogames`, {
-        method: `POST`,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formdata)
-      })
-        .then(response => response.json())
+      axios.post(`https://piweb-production.up.railway.app/videogames`,formdata)
+     .then(response => response.json())
         .then(data => {
           if (data) {
             setResback(data);
