@@ -81,7 +81,7 @@ function FormGame() {
   function submitHandler(e) {
     e.preventDefault()
     if(formdata.released){
-      fetch(`http://localhost:3007/videogames/`, {
+      fetch(`https://piweb-production.up.railway.app//videogames/`, {
         method: `POST`,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formdata)
