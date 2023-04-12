@@ -11,7 +11,7 @@ export function getGames(opc) {
    
 
     return async function (dispact) {
-        let Response =  await axios.get(`/videogames`)
+        let Response =  await axios.get(`https://piweb-production.up.railway.app/videogames`)
        
         if (opc === "DB" ||opc === 2) {
             const GamesDB = await SearchApiDB(Response, opc)
@@ -44,7 +44,7 @@ export function getGamesName(name,opc) {
     try {
         let GameName = []
         return async function (dispact) {
-            const nameGame = await axios.get(`/videogames/videogames/?name=${name}`)
+            const nameGame = await axios.get(`https://piweb-production.up.railway.app/videogames/videogames/?name=${name}`)
            
             if (opc === 2) {
                 GameName = await SearchApiDB(nameGame, opc)

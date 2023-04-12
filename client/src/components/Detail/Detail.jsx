@@ -12,7 +12,7 @@ function Detail() {
         async function details() {
             
             try {
-                const dataDetal = await axios.get(`/videogames/${detailId}`);
+                const dataDetal = await axios.get(`https://piweb-production.up.railway.app/videogames/${detailId}`);
             const getDetail = dataDetal.data
            
             if (getDetail.name) {
