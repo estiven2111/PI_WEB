@@ -1,0 +1,83 @@
+.container{
+    text-align: center;
+    text-decoration: dashed;
+    color: white;
+    font-family: 'Take Looks', sans-serif;
+    font-size: 20px;
+    margin: auto;
+    background: rgba(94, 89, 89, 0.539);
+   width: 80%;
+}
+
+.container form{
+
+    margin: 0px;
+    margin: auto;
+    width: 50%;
+}
+.container form input{
+   text-align: center;
+}
+
+.input{
+    
+    margin: auto;
+   width: 40%;
+
+}
+.input input, textarea{
+   box-shadow: 0 5px 10px 0 rgba(236, 30, 8, 0.922), 0 7px 5px 0 rgba(2, 2, 250, 0.79);
+    margin-top: 30px;
+    font-family: 'Take Looks', sans-serif;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.txt{
+    color: rgb(17, 236, 64);
+    text-decoration: dashed;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: 'Lilita One', cursive;
+    animation: alternate-reverse;
+    translate:5,10 ;
+}
+
+.container form ul{
+    width: 100%;
+    margin: 20px;
+    text-align: justify;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    margin: auto;
+    margin-bottom: 50px;
+}
+.container form ul li{
+    margin: 10px;
+}
+
+.errors{
+    font-size: 15px;
+    color: red;
+}
+
+.container form button{
+
+}
+
+.container form button{
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    margin-top: 0px;
+    border-radius: 20% ;
+    background-color: rgba(4, 24, 244, 0.973);
+    box-shadow: 0 12px 20px 0 rgba(236, 30, 8, 0.922), 0 6px 20px 0 rgba(223, 214, 214, 0.79);
+}
+.container form button:hover{
+    box-shadow: 0 16px 25px 0 rgba(4, 24, 244, 0.973), 0 6px 20px 0 rgba(106, 168, 223, 0.79);
+}
+.container form button:hover:not(.active){
+    background-color: rgba(236, 30, 8, 0.922);
+}
