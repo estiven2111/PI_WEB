@@ -82,7 +82,7 @@ function FormGame() {
   function submitHandler(e) {
     e.preventDefault()
     if(formdata.released){
-      axios.post(`https://piweb-production.up.railway.app/videogames`, {
+      fetch(`https://piweb-production.up.railway.app/videogames`, {
         method: `POST`,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formdata)
